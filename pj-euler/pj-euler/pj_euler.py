@@ -1,9 +1,9 @@
-def Multiples_of_3_or_5(): #pj-euler prob1
+def Multiples_of_3_or_5(rangeNum): #pj-euler prob1
 
     x = 0
     res = 0
     
-    while x < 1000 :
+    while x < rangeNum :
         if ((x % 5 == 0) or (x % 3 == 0)):
             res += x
         x += 1
@@ -76,8 +76,8 @@ def is_polindrom(num):
 
 
 
-#Multiples_of_3_or_5()
+#Multiples_of_3_or_5(5)
 #Even_Fibonacci_numbers()
 #Largest_prime_factor()
 #Largest_palindrome_product()
-is_polindrom(34343434) #error returning
+#is_polindrom(34343434) #error returning
