@@ -1,3 +1,5 @@
+import time
+
 def Multiples_of_3_or_5(rangeNum): #pj-euler prob1
 
     x = 0
@@ -52,34 +54,54 @@ def is_prime(n):
     
     return True
     
-#def Largest_palindrome_product(): #pj-euler prob4
+def Largest_palindrome_product(num_of_dig): #pj-euler prob4
+    n = 10**(num_of_dig)-1
+    larg_pol = 0
+
+    for x in range(n,n//10,-1):
+        for y in range(x,n//10,-1):
+            if is_polindrom(x*y) and larg_pol < x*y:
+                #print (x," * ",y," = ",x*y)
+                larg_pol = x*y
+    return larg_pol
+                
 
 
 def is_polindrom(num):
-    count = 0
+    
+    if num == rvrs_num(num):
+        #print ("num is a polindrom")
+        return True
+    #print ("num isnt a polindrom")
+    return False
+
+def rvrs_num(num):
     x = num
     rvrs_num = 0
-
-    while x != 0:
-        rvrs_num += (x % 10) * (10**(-count))
-        count += 1
+    #count = 0
+    
+    while x > 0:
+        rvrs_num = rvrs_num*10 + x % 10    # rvrs_num += (x % 10) * (10**(-count))    ->  didnt worked beacuase the way python calculating 10**(-6) edg.
+        #count += 1
         x = x // 10
-        print(x, count, rvrs_num)
+        # print(x, rvrs_num, num) # debuging check command
+    #print ("num = ", num,", rvrs_num = ", rvrs_num)
+    return rvrs_num
 
-    print((int)(rvrs_num*(10**(count-1))), num)
-
-
-
+   
     
     
-    
 
 
+start = time.time()
 
 #Multiples_of_3_or_5(5)
 #Even_Fibonacci_numbers()
 #Largest_prime_factor()
 #Largest_palindrome_product()
-#is_polindrom(34343434) #error returning
+#print(is_polindrom(121211))
+#print(Largest_palindrome_product(2))
 
-#1234
+
+end = time.time()
+print (end-start)
